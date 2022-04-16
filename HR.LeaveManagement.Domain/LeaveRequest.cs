@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HR.LeaveManagement.Domain
 {
-    internal class LeaveRequest : BaseDomainEntity
+    public class LeaveRequest : BaseDomainEntity
     {
         public bool Cancelled { get; set; }
         public bool? Approved { get; set;}

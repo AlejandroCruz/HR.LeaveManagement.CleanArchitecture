@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace HR.LeaveManagement.Domain.Common
 {
-    // can be accessed by any in same assembly, but not from another assembly.
-    internal abstract class BaseDomainEntity
+    // internal can be accessed by any in same assembly, but not from another assembly.
+    public abstract class BaseDomainEntity
     {
         public DateTime CreatedDate { get; set; }
         public DateTime DateLastModified { get; set; }
