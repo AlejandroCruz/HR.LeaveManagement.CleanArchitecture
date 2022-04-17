@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HR.LeaveManagement.Domain.Common
+﻿namespace HR.LeaveManagement.Domain.Common
 {
     // internal can be accessed by any in same assembly, but not from another assembly.
     public abstract class BaseDomainEntity
