@@ -10,7 +10,7 @@
     {
         public bool Cancelled { get; set; }
         public bool? Approved { get; set; }
-        public DateTime DateActioned { get; set; }
+        public DateTime? DateActioned { get; set; }
         public DateTime DateRequest { get; set; }
         public DateTime EndDate { get; set; }
         public DateTime StartDate { get; set; }
