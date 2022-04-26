@@ -11,10 +11,10 @@ namespace HR.LeaveManagement.App.Data.DTOs
     {
         public bool? Aproved { get; set; }
         public DateTime DateRequested { get; set; }
-        public DateTime EndDate { get; set; }
-        public DateTime StartDate { get; set; }
-        public Employee Employee { get; set; }
+        //public DateTime EndDate { get; set; }
+        //public DateTime StartDate { get; set; }
+        //public Employee Employee { get; set; }
         public LeaveTypeDto LeaveType { get; set; }
-        public string RequestingEmployeeId { get; set; }
+        //public string RequestingEmployeeId { get; set; }
     }
 }
