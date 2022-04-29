@@ -6,10 +6,10 @@ namespace HR.LeaveManagement.App.Data.ModelProfiles
 {
     public class Map : Profile
     {
+        /* Automapper config */
         public Map()
         {
             CreateMap<LeaveRequest, LeaveRequestDto>().ReverseMap();
-            CreateMap<LeaveRequest, ILeaveRequestListDto>().ReverseMap();
             CreateMap<LeaveAllocation, LeaveAllocationDto>().ReverseMap();
             CreateMap<LeaveType, LeaveTypeDto>().ReverseMap();
         }

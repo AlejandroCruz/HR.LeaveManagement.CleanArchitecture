@@ -1,13 +1,8 @@
 ﻿using AutoMapper;
+using HR.LeaveManagement.App.Data.Persistence.Contracts;
 using HR.LeaveManagement.App.Features.LeaveTypes.Requests.Commands;
-using HR.LeaveManagement.App.Persistence.Contracts;
 using HR.LeaveManagement.Domain;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HR.LeaveManagement.App.Features.LeaveTypes.Handlers.Commands
 {
@@ -24,8 +19,8 @@ namespace HR.LeaveManagement.App.Features.LeaveTypes.Handlers.Commands
 
         public async Task<int> Handle(CreateLeaveTypeCommand request, CancellationToken cancellationToken)
         {
-            var leaveType = _mapper.Map<LeaveType>(request.LeaveTypeDto);
-            leaveType = await _leaveTypeRepository.Add(leaveType);
+            var leaveType = _mapper.Map<LeaveType>(request.LeaveTypeDto); // need entity-source state?
+            leaveType = await _leaveTypeRepository.Add(leaveType); // DB update
 
             return leaveType.Id;
         }
