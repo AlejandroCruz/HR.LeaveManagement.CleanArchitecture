@@ -1,17 +1,13 @@
 ﻿using AutoMapper;
 using HR.LeaveManagement.App.Data.DTOs;
-using HR.LeaveManagement.App.Features.LeaveRequests.Requests.Queries;
 using HR.LeaveManagement.App.Data.Persistence.Contracts;
+using HR.LeaveManagement.App.Features.LeaveRequests.Requests.Queries;
+using HR.LeaveManagement.Domain;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HR.LeaveManagement.App.Features.LeaveRequests.Handlers.Queries
 {
-    internal class GetLeaveRequestDetailRequestHandler : IRequestHandler<GetLeaveRequestDetailRequest, LeaveRequestDto>
+    public class GetLeaveRequestDetailRequestHandler : IRequestHandler<GetLeaveRequestDetailRequest, LeaveRequestDto>
     {
         private readonly ILeaveRequestRepository _leaveRequestRepository;
         private readonly IMapper _mapper;
@@ -24,7 +20,7 @@ namespace HR.LeaveManagement.App.Features.LeaveRequests.Handlers.Queries
 
         public async Task<LeaveRequestDto> Handle(GetLeaveRequestDetailRequest request, CancellationToken cancellationToken)
         {
-            var leaveRequest = await _leaveRequestRepository.GetLeaveRequestWithDetails(request.Id);
+            LeaveRequest leaveRequest = await _leaveRequestRepository.GetLeaveRequestWithDetails(request.Id);
 
             return _mapper.Map<LeaveRequestDto>(leaveRequest);
         }

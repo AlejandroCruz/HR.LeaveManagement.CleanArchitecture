@@ -6,6 +6,13 @@
         DateTime DateRequested { get; set; }
         LeaveTypeDto LeaveType { get; set; }
     }
+    public interface ICreateLeaveRequestDto
+    {
+        DateTime EndDate { get; set; }
+        int LeaveTypeId { get; set; }
+        string RequestComments { get; set; }
+        DateTime StartDate { get; set; }
+    }
     public interface IUpdateLeaveRequestListDto
     {
         bool Cancelled { get; set; }
@@ -19,9 +26,9 @@
         bool? Approved { get; set; }
     }
 
-    public class LeaveRequestDto :
-        BaseDto,
+    public class LeaveRequestDto : BaseDto,
         ILeaveRequestListDto,
+        ICreateLeaveRequestDto,
         IUpdateLeaveRequestListDto,
         IChangeLeaveRequestApprovalDto
     {

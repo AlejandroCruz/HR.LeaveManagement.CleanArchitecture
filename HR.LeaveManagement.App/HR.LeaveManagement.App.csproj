@@ -7,6 +7,9 @@
 
   <ItemGroup>
     <Compile Remove="Data\DTOs\ChangeLeaveRequestApprovalDto.cs" />
+    <Compile Remove="Data\DTOs\CreateLeaveAllocationDto.cs" />
+    <Compile Remove="Data\DTOs\CreateLeaveRequestDto.cs" />
+    <Compile Remove="Data\DTOs\CreateLeaveTypeDto.cs" />
     <Compile Remove="Data\DTOs\LeaveRequestListDto.cs" />
     <Compile Remove="Data\DTOs\UpdateLeaveAllocationDto.cs" />
     <Compile Remove="Data\DTOs\UpdateLeaveRequestDto.cs" />
