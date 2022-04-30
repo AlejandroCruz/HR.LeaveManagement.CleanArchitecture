@@ -6,7 +6,7 @@
         int NumberOfDays { get; set; }
         int Period { get; set; }
     }
-    public interface IUpdateLeaveAllocationDto
+    public interface IUpdateLeaveAllocationDto : IBaseDto
     {
         int LeaveTypeId { get; set; }
         int NumberOfDays { get; set; }

@@ -1,6 +1,11 @@
 ﻿namespace HR.LeaveManagement.App.Data.DTOs
 {
-    public class BaseDto
+    public interface IBaseDto
+    {
+        int Id { get; set; }
+    }
+
+    public class BaseDto : IBaseDto
     {
         public int Id { get; set; }
     }

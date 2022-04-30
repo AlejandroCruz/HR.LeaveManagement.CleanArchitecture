@@ -21,7 +21,7 @@
         int LeaveTypeId { get; set; }
         string RequestComments { get; set; }
     }
-    public interface IChangeLeaveRequestApprovalDto
+    public interface IChangeLeaveRequestApprovalDto : IBaseDto
     {
         bool? Approved { get; set; }
     }
