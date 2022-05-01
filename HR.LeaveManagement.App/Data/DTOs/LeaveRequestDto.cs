@@ -13,7 +13,7 @@
         string RequestComments { get; set; }
         DateTime StartDate { get; set; }
     }
-    public interface IUpdateLeaveRequestListDto
+    public interface IUpdateLeaveRequestDto
     {
         bool Cancelled { get; set; }
         DateTime EndDate { get; set; }
@@ -29,7 +29,7 @@
     public class LeaveRequestDto : BaseDto,
         ILeaveRequestListDto,
         ICreateLeaveRequestDto,
-        IUpdateLeaveRequestListDto,
+        IUpdateLeaveRequestDto,
         IChangeLeaveRequestApprovalDto
     {
         public bool Cancelled { get; set; }
