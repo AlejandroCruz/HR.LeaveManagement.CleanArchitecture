@@ -1,17 +1,24 @@
 ﻿namespace HR.LeaveManagement.App.Data.DTOs
 {
+    public interface IChangeLeaveRequestApprovalDto : IBaseDto
+    {
+        bool? Approved { get; set; }
+    }
+    public interface ICreateLeaveRequestDto : ILeaveRequestDto
+    {
+        string RequestComments { get; set; }
+    }
+    public interface ILeaveRequestDto
+    {
+        DateTime EndDate { get; set; }
+        int LeaveTypeId { get; set; }
+        DateTime StartDate { get; set; }
+    }
     public interface ILeaveRequestListDto
     {
         bool? Approved { get; set; }
         DateTime DateRequested { get; set; }
         LeaveTypeDto LeaveType { get; set; }
-    }
-    public interface ICreateLeaveRequestDto
-    {
-        DateTime EndDate { get; set; }
-        int LeaveTypeId { get; set; }
-        string RequestComments { get; set; }
-        DateTime StartDate { get; set; }
     }
     public interface IUpdateLeaveRequestDto
     {
@@ -21,16 +28,12 @@
         int LeaveTypeId { get; set; }
         string RequestComments { get; set; }
     }
-    public interface IChangeLeaveRequestApprovalDto : IBaseDto
-    {
-        bool? Approved { get; set; }
-    }
-
     public class LeaveRequestDto : BaseDto,
-        ILeaveRequestListDto,
+        IChangeLeaveRequestApprovalDto,
         ICreateLeaveRequestDto,
-        IUpdateLeaveRequestDto,
-        IChangeLeaveRequestApprovalDto
+        ILeaveRequestDto,
+        ILeaveRequestListDto,
+        IUpdateLeaveRequestDto
     {
         public bool Cancelled { get; set; }
         public bool? Approved { get; set; }
