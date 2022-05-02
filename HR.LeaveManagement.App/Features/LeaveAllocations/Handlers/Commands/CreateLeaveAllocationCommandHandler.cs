@@ -12,17 +12,22 @@ namespace HR.LeaveManagement.App.Features.LeaveAllocations.Handlers.Commands
     public class CreateLeaveAllocationCommandHandler : IRequestHandler<CreateLeaveAllocationCommand, int>
     {
         private readonly ILeaveAllocationRepository _leaveAllocationRepository;
+        private readonly ILeaveTypeRepository _leaveTypeRepository;
         private readonly IMapper _mapper;
 
-        public CreateLeaveAllocationCommandHandler(ILeaveAllocationRepository leaveAllocationRepository, IMapper mapper)
+        public CreateLeaveAllocationCommandHandler(
+            ILeaveAllocationRepository leaveAllocationRepository,
+            ILeaveTypeRepository leaveTypeRepository,
+            IMapper mapper)
         {
             _leaveAllocationRepository = leaveAllocationRepository;
+            _leaveTypeRepository = leaveTypeRepository;
             _mapper = mapper;
         }
 
         public async Task<int> Handle(CreateLeaveAllocationCommand request, CancellationToken cancellationToken)
         {
-            var valid = new CreateLeaveAllocationValid();
+            var valid = new CreateLeaveAllocationValid(_leaveTypeRepository);
             var validResult = await valid.ValidateAsync(request.LeaveAllocationDto);
 
             if (!validResult.IsValid) throw new Exception();

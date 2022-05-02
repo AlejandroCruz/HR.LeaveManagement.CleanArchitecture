@@ -5,15 +5,18 @@ using System;
 
 namespace HR.LeaveManagement.App.Features.LeaveAllocations.Validators
 {
-    public class CreateLeaveAllocationValid : AbstractValidator<ICreateLeaveAllocationDto>
+    public class UpdateLeaveAllocationValid : AbstractValidator<IUpdateLeaveAllocationDto>
     {
         private readonly ILeaveTypeRepository _leaveTypeRepository;
 
-        public CreateLeaveAllocationValid(ILeaveTypeRepository leaveTypeRepository)
+        public UpdateLeaveAllocationValid(ILeaveTypeRepository leaveTypeRepository)
         {
             _leaveTypeRepository = leaveTypeRepository;
-            Include(new LeaveAllocationValid(_leaveTypeRepository));
-        }
 
+            Include(new LeaveAllocationValid(_leaveTypeRepository));
+
+            RuleFor(p => p.Id)
+                .NotNull().WithMessage("{PropertyName} must be present.");
+        }
     }
 }

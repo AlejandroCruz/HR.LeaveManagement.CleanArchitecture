@@ -11,21 +11,18 @@
     public interface ILeaveRequestDto
     {
         DateTime EndDate { get; set; }
-        int LeaveTypeId { get; set; }
         DateTime StartDate { get; set; }
+        int LeaveTypeId { get; set; }
     }
-    public interface ILeaveRequestListDto
+    public interface ILeaveRequestListDto : IBaseDto
     {
         bool? Approved { get; set; }
         DateTime DateRequested { get; set; }
         LeaveTypeDto LeaveType { get; set; }
     }
-    public interface IUpdateLeaveRequestDto
+    public interface IUpdateLeaveRequestDto : IBaseDto, ILeaveRequestDto
     {
         bool Cancelled { get; set; }
-        DateTime EndDate { get; set; }
-        DateTime StartDate { get; set; }
-        int LeaveTypeId { get; set; }
         string RequestComments { get; set; }
     }
     public class LeaveRequestDto : BaseDto,
